@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhà Sách Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">📚 Nhà Sách Online</a>
+      <input id="search" class="search" type="search" placeholder="Tìm tên sách, tác giả..." />
+      <button id="cartBtn" class="cart-btn">🛒 Giỏ hàng <span id="cartCount" class="badge">0</span></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Mỗi cuốn sách là một chuyến đi</h1>
+      <p>Miễn phí giao hàng cho đơn từ 300.000đ</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="toolbar">
+      <div id="categories" class="categories"></div>
+      <select id="sort" class="sort">
+        <option value="default">Sắp xếp: Mặc định</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+        <option value="name">Tên A–Z</option>
+      </select>
+    </div>
+    <div id="books" class="grid"></div>
+    <p id="empty" class="empty hidden">Không tìm thấy sách phù hợp.</p>
+  </main>
+
+  <!-- Giỏ hàng -->
+  <div id="overlay" class="overlay hidden"></div>
+  <aside id="cart" class="cart">
+    <div class="cart-head">
+      <h2>Giỏ hàng</h2>
+      <button id="closeCart" class="icon-btn" aria-label="Đóng">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-foot">
+      <div class="row"><span>Tạm tính</span><strong id="subtotal">0đ</strong></div>
+      <div class="row"><span>Phí giao hàng</span><strong id="shipping">0đ</strong></div>
+      <div class="row total"><span>Tổng cộng</span><strong id="total">0đ</strong></div>
+      <button id="checkoutBtn" class="btn primary block">Đặt hàng</button>
+    </div>
+  </aside>
+
+  <!-- Form đặt hàng -->
+  <div id="modal" class="modal hidden">
+    <form id="orderForm" class="modal-box">
+      <h2>Thông tin giao hàng</h2>
+      <label>Họ và tên<input name="name" required /></label>
+      <label>Số điện thoại<input name="phone" type="tel" pattern="0[0-9]{9}" title="Số điện thoại 10 số, bắt đầu bằng 0" required /></label>
+      <label>Địa chỉ<textarea name="address" rows="2" required></textarea></label>
+      <label>Ghi chú<textarea name="note" rows="2"></textarea></label>
+      <div class="modal-actions">
+        <button type="button" id="cancelOrder" class="btn">Hủy</button>
+        <button type="submit" class="btn primary">Xác nhận đặt hàng</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <footer class="footer">
+    <div class="container">© 2026 Nhà Sách Online · Hotline: 1900 0000</div>
+  </footer>
+
+  <script src="books.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
